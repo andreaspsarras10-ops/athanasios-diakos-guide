@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Έξυπνες Πληροφορίες</title>
+    <style>
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #f2ede4; color: #2c3e50; margin: 0; padding: 0; line-height: 1.7; }
+        .container { max-width: 850px; margin: 40px auto; padding: 20px; }
+        .navbar { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .nav-btn { display: inline-block; padding: 14px 28px; background-color: #ffffff; color: #2c3e50; text-decoration: none; font-weight: 600; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); }
+        .nav-btn.active, .nav-btn:hover { background-color: #1a252f; color: white; }
+        .card { background-color: #ffffff; padding: 35px; border-radius: 24px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); }
+        h2 { color: #2c3e50; border-bottom: 3px solid #16a085; padding-bottom: 5px; display: inline-block; margin-top: 0; font-size: 1.3rem; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { margin-bottom: 15px; padding-left: 30px; position: relative; font-size: 1.05rem; }
+        li::before { content: "•"; color: #16a085; font-size: 1.8rem; position: absolute; left: 5px; top: -5px; }
+        strong { color: #111; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="nav-btn">🏡 Αρχική</a>
+            <a href="/services" class="nav-btn">🍖 Διαμονή & Φαγητό</a>
+            <a href="/tips" class="nav-btn active">💡 Έξυπνα Tips</a>
+            <a href="/reasonstovisit" class="nav-btn">🌲 Γιατί να πάτε</a>
+        </div>
+
+        <div class="card">
+            <h2>🎒 Quick Facts (Για να ξέρεις τα βασικά σε 10'')</h2>
+            <ul>
+                <li><strong>Υψόμετρο:</strong> Βρίσκεται στα 1.050 μέτρα (πάρε ζακέτα ακόμα και το καλοκαίρι!).</li>
+                <li><strong>Παλιό Όνομα:</strong> Μέχρι το 1959 ονομαζόταν <em>Άνω Μουσουνίτσα</em>.</li>
+                <li><strong>Απόσταση:</strong> Περίπου 3 ώρες από την Αθήνα.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🌲 Τι να κάνεις εκεί (Με μια ματιά)</h2>
+            <ul>
+                <li><strong>📸 Φωτογραφία στην Πλατεία:</strong> Δίπλα στον τεράστιο ανδριάντα του Αθανασίου Διάκου που στήθηκε το 1922.</li>
+                <li><strong>🏛️ Επίσκεψη στο Μουσείο:</strong> Είναι χτισμένο ακριβώς πάνω στα θεμέλια του πατρικού σπιτιού του ήρωα.</li>
+                <li><strong>🥾 Πεζοπορία στα Βαρδούσια:</strong> Το χωριό είναι η κύρια βάση για τους ορειβάτες που ανεβαίνουν στις κορυφές.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>💡 Secret Tips από τους Ντόπιους</h2>
+            <ul>
+                <li><strong>💧 Το νερό των Βαρδουσίων:</strong> Μην αγοράσεις εμφιαλωμένο! Οι πέτρινες βρύσες τρέχουν παγωμένο, πεντακάθαρο νερό κατευθείαν από τις πηγές του βουνού.</li>
+                <li><strong>🚗 Η διαδρομή:</strong> Ο δρόμος έχει στροφές, αλλά η φύση μέσα στο ελατοδάσος είναι μαγική. Οδήγα προσεκτικά!</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

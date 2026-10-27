@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Διαμονή & Γαστρονομία | Αθανάσιος Διάκος</title>
+    <style>
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: #f5f2eb; color: #2c3e50; margin: 0; padding: 0; line-height: 1.8; }
+        .container { max-width: 950px; margin: 50px auto; padding: 20px; }
+        .navbar { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .nav-btn { display: inline-block; padding: 14px 28px; background-color: #ffffff; color: #2c3e50; text-decoration: none; font-weight: 600; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); }
+        .nav-btn.active, .nav-btn:hover { background-color: #1a252f; color: #ffffff; }
+        .card { background-color: #ffffff; padding: 40px; border-radius: 32px; margin-bottom: 35px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.03); }
+        h2 { color: #1a252f; font-size: 1.6rem; margin-top: 0; margin-bottom: 25px; display: inline-block; font-weight: 700; }
+        h2::after { content: ''; display: block; width: 40px; height: 4px; background: #e67e22; border-radius: 2px; margin-top: 8px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .box { background-color: #faf9f6; padding: 30px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.02); transition: transform 0.3s ease; }
+        .box:hover { transform: translateY(-5px); }
+        .box h3 { margin-top: 0; color: #1a252f; font-size: 1.3rem; font-weight: 600; margin-bottom: 8px; }
+        .tag { display: inline-block; background: #e67e22; color: white; padding: 4px 12px; font-size: 0.8rem; font-weight: 700; border-radius: 50px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .tag.hotel { background: #2980b9; }
+        .tag.shop { background: #16a085; }
+        .tag.cafe { background: #8e44ad; }
+        .specialty { font-style: italic; color: #16a085; font-size: 0.95rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="nav-btn">🏡 Αρχική</a>
+            <a href="/services" class="nav-btn active">🍖 Διαμονή & Φαγητό</a>
+            <a href="/tips" class="nav-btn">💡 Έξυπνα Tips</a>
+            <a href="/reasonstovisit" class="nav-btn">🌲 Γιατί να πάτε</a>
+        </div>
+
+        <div class="card">
+            <h2>🍖 Παραδοσιακή Γαστρονομία & Ταβέρνες</h2>
+            <p>Οι φημισμένες ταβέρνες του χωριού προσφέρουν κορυφαίας ποιότητας ντόπια κρέατα Ρούμελης, ακριβώς πάνω στην ιστορική πλατεία.</p>
+            
+            <div class="grid">
+                <div class="box">
+                    <span class="tag">Ταβέρνα - Ξενώνας</span>
+                    <h3>Ο Ραβάνης</h3>
+                    <p class="specialty">✨ Σπεσιαλιτέ: Παραδοσιακό κοντοσούβλι, κοκορέτσι και χειροποίητες πίτες.</p>
+                    <p>Μια από τις πιο γνωστές και παραδοσιακές επιλογές του χωριού στην πλατεία. Συνδυάζει το εξαιρετικό φαγητό με τη ζεστή φιλοξενία, ενώ διαθέτει και δωμάτια για τη διαμονή σας.</p>
+                </div>
+
+                <div class="box">
+                    <span class="tag">Ταβέρνα - Ξενώνας</span>
+                    <h3>Το Μετερίζι</h3>
+                    <p class="specialty">✨ Σπεσιαλιτέ: Παϊδάκια στα κάρβουνα, σπληνάντερο και ντόπια κρέατα της ώρας.</p>
+                    <p>Βρίσκεται πάνω στην κεντρική πλατεία κάτω από τα πλατάνια. Φημίζεται για τις αυθεντικές ρουμελιώτικες γεύσεις του, ενώ λειτουργεί και ως παραδοσιακός ξενώνας προσφέροντας ζεστή διαμονή στα δωμάτιά του.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🛌 Premium Διαμονή & Ξενώνες</h2>
+            <p>Απολαύστε τη διαμονή σας σε πέτρινα αρχοντικά με τζάκι και μαγευτική θέα στις ελατοσκέπαστες πλαγιές των Βαρδουσίων.</p>
+            
+            <div class="grid">
+                <div class="box">
+                    <span class="tag hotel">Ξενώνας / Ξενοδοχείο</span>
+                    <h3>Το Μετερίζι (Δωμάτια)</h3>
+                    <p>Εξαιρετική επιλογή στην πλατεία που συνδυάζει τη διαμονή με το καλό φαγητό. Προσφέρει ζεστά, φιλόξενα δωμάτια με εκπληκτική θέα στο βουνό και άμεση πρόσβαση στην καρδιά του χωριού.</p>
+                </div>
+
+                <div class="box">
+                    <span class="tag hotel">Ξενώνας / Ξενοδοχείο</span>
+                    <h3>Ξενώνας "Βαρδούσια"</h3>
+                    <p>Ένα στολίδι στην είσοδο του χωριού. Προσφέρει πολυτελή και ζεστά δωμάτια με όλες τις σύγχρονες ανέσεις, διατηρώντας την παραδοσιακή αρχιτεκτονική.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>☕ Καφέ, Διασκέδαση & Αγορές</h2>
+            <div class="grid">
+                <div class="box">
+                    <span class="tag cafe">Μπαρ / Καφέ</span>
+                    <h3>Το Στέκι του Χωριού</h3>
+                    <p class="specialty">✨ Καφές στη χόβολη, καθαρά ποτά & ντόπιο τσίπουρο.</p>
+                    <p>Ο απόλυτος χώρος συνάντησης στο χωριό για καφέ το πρωί ή ποτό το βράδυ μετά από μια μέρα στα βουνά.</p>
+                </div>
+
+                <div class="box">
+                    <span class="tag shop">Μικρό Παντοπωλείο</span>
+                    <h3>Το Παραδοσιακό Παντοπωλείο</h3>
+                    <p class="specialty">✨ Ντόπιο μέλι ελάτου, τυροκομικά Βαρδουσίων & βότανα.</p>
+                    <p>Ένα γραφικό μαγαζάκι γεμάτο θησαυρούς της Φωκίδας για να πάρετε τα απαραίτητα εφόδια ή τοπικά προϊόντα.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

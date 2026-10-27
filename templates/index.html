@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Αθανάσιος Διάκος Φωκίδας | Premium Travel Guide</title>
+    <style>
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background-color: #f5f2eb; color: #2c3e50; margin: 0; padding: 0; line-height: 1.8; }
+        .container { max-width: 1000px; margin: 50px auto; padding: 20px; }
+        
+        /* Premium Navbar */
+        .navbar { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .nav-btn { display: inline-block; padding: 14px 28px; background-color: #ffffff; color: #2c3e50; text-decoration: none; font-weight: 600; border-radius: 50px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0,0,0,0.03); }
+        .nav-btn.active, .nav-btn:hover { background-color: #1a252f; color: #ffffff; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(26,37,47,0.15); }
+        
+        /* Hero Header */
+        header { text-align: center; margin-bottom: 40px; background: linear-gradient(135deg, #2c3e50, #1a252f); padding: 60px 40px; border-radius: 32px; color: white; box-shadow: 0 15px 35px rgba(26,37,47,0.1); }
+        header h1 { margin: 0; font-size: 2.6rem; font-weight: 700; letter-spacing: -0.5px; }
+        header p { margin: 12px 0 0 0; color: #bdc3c7; font-size: 1.2rem; }
+        
+        /* Premium Cards */
+        .card { background-color: #ffffff; padding: 40px; border-radius: 32px; margin-bottom: 35px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.03); border: 1px solid rgba(0,0,0,0.02); }
+        h2 { color: #1a252f; font-size: 1.6rem; margin-top: 0; margin-bottom: 20px; display: inline-block; font-weight: 700; }
+        h2::after { content: ''; display: block; width: 40px; height: 4px; background: #16a085; border-radius: 2px; margin-top: 8px; }
+        
+        /* ΠΑΙΧΝΙΔΙΑΡΙΚΟ ΑΝΑΚΑΤΕΜΕΝΟ ΚΟΛΑΖ */
+        .image-gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 40px 10px; background-color: #faf9f6; border-radius: 24px; overflow: visible; }
+        .gallery-item { width: 240px; height: 240px; object-fit: cover; cursor: pointer; padding: 12px 12px 30px 12px; background-color: #ffffff; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid #eae6df; border-radius: 4px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
+        .gallery-item:nth-child(odd) { transform: rotate(-4deg) translateY(5px); z-index: 1; }
+        .gallery-item:nth-child(even) { transform: rotate(5deg) translateY(-5px); z-index: 2; }
+        .gallery-item:hover { transform: rotate(0deg) scale(1.15); z-index: 99; box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        
+        /* Δίστηλο Layout για τα Βίντεο */
+        .video-layout { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 30px; align-items: center; margin-top: 15px; }
+        .video-info-box { background-color: #faf9f6; padding: 30px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.02); height: 100%; display: flex; flex-direction: column; justify-content: center; }
+        .video-info-box h3 { margin-top: 0; color: #1a252f; font-size: 1.25rem; }
+        .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; justify-content: center; }
+        .local-video { width: 100%; height: 420px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.06); outline: none; background: #000; object-fit: contain; }
+        .video-info-box ul { list-style: none; padding: 0; margin: 15px 0 0 0; }
+        .video-info-box li { margin-bottom: 12px; font-size: 1rem; color: #555; padding-left: 20px; position: relative; }
+        .video-info-box li::before { content: "•"; color: #16a085; font-size: 1.5rem; position: absolute; left: 0; top: -4px; }
+
+        /* Premium Google Maps Button */
+        .maps-btn-container { text-align: center; margin-top: 10px; }
+        .maps-btn { display: inline-block; padding: 15px 35px; background-color: #4285F4; color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem; border-radius: 50px; box-shadow: 0 6px 20px rgba(66,133,244,0.3); transition: all 0.3s ease; }
+        .maps-btn:hover { background-color: #357ae8; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(66,133,244,0.4); }
+
+        /* Lightbox Modal */
+        .lightbox-modal { display: none; position: fixed; z-index: 9999; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; }
+        .lightbox-content { max-width: 90%; max-height: 85%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain; animation: zoomIn 0.3s ease; }
+        .lightbox-close { position: absolute; top: 25px; right: 35px; color: #ffffff; font-size: 40px; font-weight: bold; cursor: pointer; user-select: none; }
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+        footer { text-align: center; padding: 40px 0; color: #95a5a6; font-size: 0.95rem; border-top: 1px solid rgba(0,0,0,0.05); margin-top: 60px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="nav-btn active">🏡 Αρχική</a>
+            <a href="/services" class="nav-btn">🍖 Διαμονή & Φαγητό</a>
+            <a href="/tips" class="nav-btn">💡 Έξυπνα Tips</a>
+            <a href="/reasonstovisit" class="nav-btn">🌲 Γιατί να πάτε</a>
+        </div>
+
+        <header>
+            <h1>Αθανάσιος Διάκος Φωκίδας</h1>
+            <p>Premium Ταξιδιωτικός Οδηγός για το Διαμάντι των Βαρδουσίων</p>
+        </header>
+
+        <div class="card">
+            <h2>Η Ταυτότητα του Χωριού</h2>
+            <p>Καλώς ήρθατε στον επίσημο οδηγό για τον <strong>Αθανάσιο Διάκο</strong> (ιστορικά γνωστό ως <em>Άνω Μουσουνίτσα</em>). Ένας προορισμός απαράμιλλου φυσικού κάλλους, χτισμένος σε υψόμετρο 1.050 μέτρων, που συνδυάζει τη βαριά ιστορική κληρονομιά της Επανάστασης του 1821 με την άγρια ομορφιά της ελληνικής ορεινής φύσης.</p>
+        </div>
+
+        {% if videos %}
+        <div class="card">
+            <h2>🎥 Οδοιπορικό στα Βαρδούσια (Video Gallery)</h2>
+            <div class="video-layout">
+                <div class="video-info-box">
+                    <h3>💡 Περιγραφή Οπτικοακουστικού Υλικού</h3>
+                    <p>Πατήστε Play στους διπλανούς κάθετους players για να δείτε τα αυθεντικά πλάνα από την περιήγηση στην περιοχή:</p>
+                    <ul>
+                        <li><strong>Το Ποτάμι του Χωριού (Αριστερό Βίντεο):</strong> Τα κρυστάλλινα και τρεχούμενα νερά που διασχίζουν τον Αθανάσιο Διάκο, προσφέροντας έναν μοναδικό ήχο χαλάρωσης και πλούσια βλάστηση.</li>
+                        <li><strong>Το Γήπεδο Μπάσκετ (Δεξί Βίντεο):</strong> Το θρυλικό γήπεδο του χωριού, ίσως ένα από τα πιο όμορφα της Ελλάδας, με την τρομερή και ανεμπόδιστη θέα στις επιβλητικές κορυφές των Βαρδουσίων.</li>
+                    </ul>
+                </div>
+                <div class="video-grid">
+                    {% for vid in videos %}
+                        <video class="local-video" controls>
+                            <source src="{{ url_for('static', filename=vid) }}" type="video/mp4">
+                        </video>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="card" style="overflow: visible;">
+            <h2>Φωτογραφικό Υλικό (Interactive Collage)</h2>
+            <p style="font-size: 0.95rem; color: #7f8c8d; margin-top: -10px; margin-bottom: 20px;">💡 Περάστε το ποντίκι πάνω από τις φωτογραφίες και κάντε κλικ για μεγέθυνση.</p>
+            <div class="image-gallery">
+                {% for img in images %}
+                    <img src="{{ url_for('static', filename=img) }}" alt="Φωτογραφία Αθανάσιος Διάκος" class="gallery-item">
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🗺️ Σχεδιάστε το Ταξίδι σας</h2>
+            <p>Θέλετε να επισκεφθείτε τον Αθανάσιο Διάκο; Κάντε κλικ στο παρακάτω κουμπί για να ανοίξει η τοποθεσία κατευθείαν στην εφαρμογή των Google Maps, ώστε να δείτε την ακριβή διαδρομή και τον χρόνο ταξιδιού από τη θέση σας.</p>
+            <div class="maps-btn-container">
+                <a href="https://goo.gl" target="_blank" class="maps-btn">📍 Άνοιγμα Διαδρομής στο Google Maps</a>
+            </div>
+        </div>
+
+        <footer><p>© 2026 — Designed with Python & Flask. All rights reserved.</p></footer>
+    </div>
+
+    <div id="lightbox" class="lightbox-modal">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('lightbox-close');
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => { lightbox.style.display = 'flex'; lightboxImg.src = item.src; });
+        });
+        closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
+        lightbox.addEventListener('click', (e) => { if (e.target !== lightboxImg && e.target !== closeBtn) { lightbox.style.display = 'none'; } });
+    </script>
+</body>
+</html>
